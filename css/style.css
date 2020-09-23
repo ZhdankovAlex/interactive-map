@@ -1,0 +1,124 @@
+ body{
+  background-color: #F3F1E5;
+}
+
+/*map-wrap-center*/
+.map{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 841px;
+  height: 100%;
+  margin: 10% auto;
+  position: relative;
+}
+
+/*city-panel*/
+.info_panel {
+  background-color: solid white;
+  padding: .3em;
+  font-size: .8em;
+  font-family: Helvetica, Arial, sans-serif;
+  position: inherit;
+}
+
+/*MSK-city*/
+.pointMSK{
+  background: #FFF40C;
+
+  position: absolute;
+  top: 57.5%;
+  left: 15.5%;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 0.5em;
+
+  box-shadow: 1px 1px #8c896a;
+  -moz-box-shadow:  1px 1px #8c896a;
+  -webkit-box-shadow:  1px 1px #8c896a;
+  -o-box-shadow:  1px 1px #8c896a;
+
+  border-radius: 9px;
+}
+
+/*SPB-city*/
+.pointSPB{
+  background: #FFF40C;
+
+  position: absolute;
+  top: 44%;
+  left: 13%;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 0.5em;
+
+  box-shadow: 1px 1px #8c896a;
+  -moz-box-shadow:  1px 1px #8c896a;
+  -webkit-box-shadow:  1px 1px #8c896a;
+  -o-box-shadow:  1px 1px #8c896a;
+
+  border-radius: 9px;
+}
+
+/*Gatchino-city*/
+.pointGatchino{
+  background: #FFF40C;
+
+  position: absolute;
+  top: 44.5%;
+  left: 12%;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 0.5em;
+
+  box-shadow: 1px 1px #8c896a;
+  -moz-box-shadow:  1px 1px #8c896a;
+  -webkit-box-shadow:  1px 1px #8c896a;
+  -o-box-shadow:  1px 1px #8c896a;
+
+  border-radius: 9px;
+}
+
+/*Murmansk-city*/
+.pointMurmansk{
+  background: #FFF40C;
+
+  position: absolute;
+  top: 36%;
+  left: 24%;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 0.5em;
+
+  box-shadow: 1px 1px #8c896a;
+  -moz-box-shadow:  1px 1px #8c896a;
+  -webkit-box-shadow:  1px 1px #8c896a;
+  -o-box-shadow:  1px 1px #8c896a;
+
+  border-radius: 9px;
+}
+
+/*Arsenev-city*/
+.pointArsenev{
+  background: #FFF40C;
+
+  position: absolute;
+  top: 82.7%;
+  right: 11.25%;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 0.5em;
+
+  box-shadow: 1px 1px #8c896a;
+  -moz-box-shadow:  1px 1px #8c896a;
+  -webkit-box-shadow:  1px 1px #8c896a;
+  -o-box-shadow:  1px 1px #8c896a;
+
+  border-radius: 9px;
+}
