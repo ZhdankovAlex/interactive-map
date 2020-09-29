@@ -1,79 +1,56 @@
 $(document).ready(function(){
-  $("div1").css('cursor','pointer');
+  var regions=[
+      {
+          "region_name": "Москва",
+          "region_code": "MOS",
+          "top": "57.5%",
+          "left": "15.5%",
+      },
+      {
+          "region_name": "Санкт-Петербург",
+          "region_code": "LEN",
+          "top": "44%",
+          "left": "13%",
+      },
+      {
+          "region_name": "Гатчина",
+          "region_code": "LEN",
+          "top": "44.5%",
+          "left": "12%",
+      },
+      {
+          "region_name": "Мурманск",
+          "region_code": "MUR",
+          "top": "36%",
+          "left": "24%",
+      },
+      {
+          "region_name": "Арсеньев",
+          "region_code": "PRI",
+          "top": "82.7%",
+          "left": "88.75%",
+      },
+  ];
 
-  $("span1").mouseenter(function() {
-    $('<div class="info_panel">'
-      + "Москва"
-      + '</div>').appendTo('div1');
+  for (i = 0; i < regions.length; i++) {
+    $('#'+ regions[i].region_code).css({'fill': '#d2b48c'}).data('region', regions[i]);
+    /*$('<div class="point"></div>').appendTo("div1").css({
+      top: regions[i].top,
+      left: regions[i].left
+    });*/
+  }
+
+  $('.map g').mouseover(function (e) {
+    var region_data=$(this).data('region');
+      $('<div class="info_panel">' + region_data.region_name + '</div>').appendTo('body'); //smthng wrong
+  }).mouseleave(function () {
+    $('.info_panel').remove();
+  }).mousemove(function(e) {
+    var mouseX = e.pageX,
+        mouseY = e.pageY;
     $('.info_panel').css({
-      'position': 'absolute',
-      'top': '54%',
-      'left': '13%'
+      top: mouseY-50,
+      left: mouseX - ($('.info_panel').width() / 2)
     });
   });
-
-  $("span2").mouseenter(function() {
-    $('<div class="info_panel">'
-      + "Гатчина"
-      + '</div>').appendTo('div1');
-    $('.info_panel').css({
-      'position': 'absolute',
-      'top': '41%',
-      'left': '9%'
-    });
-  });
-
-  $("span3").mouseenter(function() {
-    $('<div class="info_panel">'
-      + "Санкт-Петербург"
-      + '</div>').appendTo('div1');
-    $('.info_panel').css({
-      'position': 'absolute',
-      'top': '40%',
-      'left': '12%'
-    });
-  });
-
-  $("span4").mouseenter(function() {
-    $('<div class="info_panel">'
-      + "Мурманск"
-      + '</div>').appendTo('div1');
-    $('.info_panel').css({
-      'position': 'absolute',
-      'top': '32%',
-      'left': '20%'
-    });
-  });
-
-  $("span5").mouseenter(function() {
-    $('<div class="info_panel">'
-      + "Арсеньев"
-      + '</div>').appendTo('div1');
-    $('.info_panel').css({
-      'position': 'absolute',
-      'top': '78%',
-      'right': '8%'
-    });
-  });
-
-  $("span1").mouseleave(function () {
-    $('.info_panel').remove();
-  });
-
-  $("span2").mouseleave(function () {
-    $('.info_panel').remove();
-  });
-
-  $("span3").mouseleave(function () {
-    $('.info_panel').remove();
-  });
-
-  $("span4").mouseleave(function () {
-    $('.info_panel').remove();
-  });
-
-  $("span5").mouseleave(function () {
-    $('.info_panel').remove();
-  });
-
 });
