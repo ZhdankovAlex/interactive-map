@@ -1,56 +1,130 @@
 $(document).ready(function(){
-  var regions=[
+  var cities=[
       {
-          "region_name": "Москва",
-          "region_code": "MOS",
+          "name": "Москва",
           "top": "57.5%",
           "left": "15.5%",
       },
       {
-          "region_name": "Санкт-Петербург",
-          "region_code": "LEN",
+          "name": "Санкт-Петербург",
           "top": "44%",
           "left": "13%",
       },
       {
-          "region_name": "Гатчина",
-          "region_code": "LEN",
+          "name": "Гатчина",
           "top": "44.5%",
           "left": "12%",
       },
       {
-          "region_name": "Мурманск",
-          "region_code": "MUR",
+          "name": "Мурманск",
           "top": "36%",
           "left": "24%",
       },
       {
-          "region_name": "Арсеньев",
-          "region_code": "PRI",
+          "name": "Арсеньев",
           "top": "82.7%",
-          "left": "88.75%",
+          "left": "87.75%",
       },
   ];
 
-  for (i = 0; i < regions.length; i++) {
-    $('#'+ regions[i].region_code).css({'fill': '#d2b48c'}).data('region', regions[i]);
-    /*$('<div class="point"></div>').appendTo("div1").css({
-      top: regions[i].top,
-      left: regions[i].left
-    });*/
+  var current = new Image();
+
+  var armalit = new Array();
+  current.src = "MATERIALS/cities/armalit/01.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/02.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/03.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/04.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/05.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/06.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/07.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/08.png";
+  armalit.push(current);
+  current.src = "MATERIALS/cities/armalit/09.png";
+  armalit.push(current);
+
+  var askold = new Array();
+  current.src = "MATERIALS/cities/askold/01.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/02.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/03.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/04.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/05.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/06.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/07.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/08.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/09.png";
+  askold.push(current);
+  current.src = "MATERIALS/cities/askold/10.png";
+  askold.push(current);
+
+  var burevestnik = new Array();
+  current.src = "MATERIALS/cities/burevestnik/01.png";
+  burevestnik.push(current);
+  current.src = "MATERIALS/cities/burevestnik/02.png";
+  burevestnik.push(current);
+  current.src = "MATERIALS/cities/burevestnik/03.png";
+  burevestnik.push(current);
+  current.src = "MATERIALS/cities/burevestnik/04.png";
+  burevestnik.push(current);
+  current.src = "MATERIALS/cities/burevestnik/05.png";
+  burevestnik.push(current);
+  current.src = "MATERIALS/cities/burevestnik/06.png";
+  burevestnik.push(current);
+
+  var skbk = new Array();
+  current.src = "MATERIALS/cities/skbk/01.png";
+  skbk.push(current);
+  current.src = "MATERIALS/cities/skbk/02.png";
+  skbk.push(current);
+  current.src = "MATERIALS/cities/skbk/03.png";
+  skbk.push(current);
+  current.src = "MATERIALS/cities/skbk/04.png";
+  skbk.push(current);
+  current.src = "MATERIALS/cities/skbk/05.png";
+  skbk.push(current);
+  current.src = "MATERIALS/cities/skbk/06.png";
+  skbk.push(current);
+
+  for (i = 0; i < cities.length; i++) {
+    $('<span-point class="point"></span-point>').appendTo("div-map").css({
+      top: cities[i].top,
+      left: cities[i].left
+    }).data('city', cities[i]);
   }
 
-  $('.map g').mouseover(function (e) {
-    var region_data=$(this).data('region');
-      $('<div class="info_panel">' + region_data.region_name + '</div>').appendTo('body'); //smthng wrong
+  $('span-point').mouseover(function () {
+    var city_data=$(this).data('city');
+      $('<div-info class="info_panel">' + city_data.name + '</div-info>').appendTo('div-map');
+      $('.info_panel').css({
+        top: city_data.top,
+        left: city_data.left
+    });
   }).mouseleave(function () {
     $('.info_panel').remove();
-  }).mousemove(function(e) {
-    var mouseX = e.pageX,
-        mouseY = e.pageY;
-    $('.info_panel').css({
-      top: mouseY-50,
-      left: mouseX - ($('.info_panel').width() / 2)
-    });
   });
+
+  var counter = 0;
+
+  //по 3 секунды каждая, не более 5 штук единоразово, НЕ НАСЛАИВАЯСЬ
+  for (i = 0; i < armalit.length; i++) {
+    $('<span-popup class="popup"></span-popup>').appendTo("div-map").css({
+      top: 5,
+      left: 5
+    }).data('image', armalit[i]);
+    counter++;
+  }
 });

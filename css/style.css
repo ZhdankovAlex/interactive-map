@@ -1,46 +1,88 @@
 body{
-  background-color: #F3F1E5;
+ background-color: #F3F1E5;
 }
 
-.map svg{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  max-height: 600px;
-  max-width: 900px;
-  margin: 10% auto;
+/*map-wrap-center*/
+.map{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 841px;
+ height: 100%;
+ margin: 10% auto;
+ position: relative;
+ cursor: pointer;
 }
 
-.map g{
-  fill: #C9C4A7;
-  stroke: #000000;
-  stroke-width: 1;
-  position: relative;
-}
-
-.map g:hover{
-  fill: #c0a58a !important;
-  cursor: pointer;
-}
-
+/*city-panel*/
 .info_panel{
-  background-color: solid white;
-  padding: .3em;
-  font-size: .8em;
-  font-family: Arial, serif;
-  position: inherit;
+ background: #f2f6f6;
+ width: auto;
+ padding: .3em;
+ font-size: .8em;
+ font-family: Helvetica, Arial, sans-serif;
+ position: absolute;
+ border-radius: 0.5em;
+
+ opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+ transition: 1s; /*Скорость перехода состояния элемента*/
 }
 
-.point{
-  background: #FFF40C;
-  width: 9px;
-  height: 9px;
+/*popup- image*/
+.popup{
+  background: #f2f6f6;
+  width: auto;
+  padding: .3em;
+  position: absolute;
   border-radius: 0.5em;
-  box-shadow: 1px 1px #8c896a;
-  -moz-box-shadow:  1px 1px #8c896a;
-  -webkit-box-shadow:  1px 1px #8c896a;
-  -o-box-shadow:  1px 1px #8c896a;
-  border-radius: 9px;
+
+  opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+  transition: 1s; /*Скорость перехода состояния элемента*/
+  animation: show-popup 3s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 1s; /* Задержка перед началом */
+}
+
+@keyframes show-popup{
+  0%{
+      opacity:0;
+    }
+  100% {
+      opacity:1;
+    }
+}
+
+/*city*/
+.point{
+ background: #FFF40C;
+ position: absolute;
+
+ width: 9px;
+ height: 9px;
+ border-radius: 0.5em;
+
+ box-shadow: 1px 1px #8c896a;
+ -moz-box-shadow:  1px 1px #8c896a;
+ -webkit-box-shadow:  1px 1px #8c896a;
+ -o-box-shadow:  1px 1px #8c896a;
+ border-radius: 9px;
+
+ opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
+ transition: 1s; /*Скорость перехода состояния элемента*/
+ animation: show-point 1s 1; /* Указываем название анимации, её время и количество повторов*/
+ animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+ animation-delay: 1s; /* Задержка перед началом */
+}
+
+@keyframes show-point{
+  0%{
+      opacity:0;
+    }
+  100% {
+      opacity:1;
+    }
+}
+
+.point:hover ~ .info_panel{
+  opacity: 1;
 }
